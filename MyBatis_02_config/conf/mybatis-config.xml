@@ -112,7 +112,11 @@
 						不重要，简单的Dao接口为了开发快速可以使用注解；
 		-->
 
-		<!-- 批量注册：路径下都是Mapper的xml文件-->
+		<!-- 批量注册：路径下	都是Mapper的xml文件，映射文件名必须和接口同名，并且放在与接口同一目录下-->
 		<!--<package name="com.atguigu.mybatis.dao"/>-->
+
+
+		<package name="com.atguigu.mybatis.dao"/>
+
 	</mappers>
 </configuration>

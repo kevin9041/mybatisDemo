@@ -1,6 +1,7 @@
 package com.atguigu.mybatis.test;
 
 import com.atguigu.mybatis.bean.Employee;
+import com.atguigu.mybatis.dao.EmployeeMapper;
 import com.atguigu.mybatis.dao.EmployeeMapperAnnotation;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -31,6 +32,19 @@ public class MyBatisTest {
 			openSession.close();
 		}
 	}
-	
+
+	@Test
+	public void test03() throws IOException{
+		SqlSessionFactory sqlSessionFactory = getSqlSessionFactory();
+		SqlSession openSession = sqlSessionFactory.openSession();
+		try{
+			EmployeeMapper mapper = openSession.getMapper(EmployeeMapper.class);
+			Employee empById = mapper.getEmpById(1);
+			System.out.println(empById);
+		}finally{
+			openSession.close();
+		}
+	}
+
 	
 }
